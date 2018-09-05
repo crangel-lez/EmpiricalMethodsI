@@ -3,7 +3,6 @@
 
 \documentclass{article}
 
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -20,8 +19,7 @@
 
 \sloppy
 \epstopdfsetup{outdir=./}
-%\graphicspath{ {./homework1_images/} }
-
+\graphicspath{ {./homework1_correct_images/} }
 
 \begin{document}
 
@@ -73,9 +71,7 @@ disp(y2')
    38.5000
    48.0000
 \end{matlaboutput}
-
 \newpage
-
 \begin{matlabcode}
 
 % Plot Y1, Y2 vs X
@@ -85,9 +81,9 @@ title("Y1,Y2 vs. X")
 xlabel("x")
 legend("Y1", "Y2")
 \end{matlabcode}
-%\begin{center}
+\begin{center}
 \includegraphics[width=\maxwidth{56.196688409433015em}]{figure_0}
-%\end{center}
+\end{center}
 
 
 \matlabheading{Question 2}
@@ -100,13 +96,13 @@ Code:
 
 \begin{matlabcode}
 % Create x vector
-x=linspace(-10, 20);
+x=linspace(-10, 20, 200)';
 
 % Calculate and display sum of the elements of x
 sum_x=sum(x)
 \end{matlabcode}
 \begin{matlaboutput}
-sum_x = 500.0000
+sum_x = 1000
 \end{matlaboutput}
 
 
@@ -126,7 +122,16 @@ A=[2, 4, 6; 1, 7, 5; 3, 12, 4];
 b=[-2;3;10];
 
 % Calculate and display C=A'b
-C=A'*b;
+C=A'*b
+\end{matlabcode}
+\begin{matlaboutput}
+C = 3x1    
+    29
+   133
+    43
+
+\end{matlaboutput}
+\begin{matlabcode}
 
 % Calculate and display D=((A'A)^(-1))*b
 D=inv(A'*A)*b
@@ -163,9 +168,10 @@ F(:,3)=[]
 F = 2x2    
      2     4
      3    12
+
 \end{matlaboutput}
-\newpage
 \begin{matlabcode}
+
 % Solve the system Ax=b
 x=A\b
 \end{matlabcode}
@@ -195,11 +201,6 @@ B=blkdiag(A,A,A,A,A)
 
 \includegraphics[scale=0.3]{blockmatrix}
 
-%\begin{figure}
-%	\centering
-%	\subfloat[BlockMatrix]{\includegraphics[height=2.2in, width=2.9in]{blockmatrix.png}}
-%\end{figure}
-
 
 \matlabheading{Question 5}
 
@@ -216,11 +217,11 @@ A=10+5*randn(5,3)
 \end{matlabcode}
 \begin{matlaboutput}
 A = 5x3    
-    6.9984   -0.6918   10.6202
-   12.4498    5.8021   17.1835
-   13.6968   16.7730    0.1955
-   18.5594    4.6392    9.0115
-    9.0294   14.8048    3.9608
+   12.6883    3.4616    3.2506
+   19.1694    7.8320   25.1746
+   -1.2942   11.7131   13.6270
+   14.3109   27.8920    9.6847
+   11.5938   23.8472   13.5737
 
 \end{matlaboutput}
 \begin{matlabcode}
@@ -233,11 +234,11 @@ A(A>=10)=1
 \end{matlabcode}
 \begin{matlaboutput}
 A = 5x3    
-     0     0     1
-     1     0     1
-     1     1     0
      1     0     0
-     0     1     0
+     1     0     1
+     0     1     1
+     1     1     0
+     1     1     1
 
 \end{matlaboutput}
 
@@ -261,7 +262,6 @@ T.Properties.VariableNames = {'FirmID', 'Year', 'Export', 'RD', 'prod', 'cap'}
 
 fitlm(T,'prod~Export+RD+cap')
 \end{matlabcode}
-
 \includegraphics[scale=0.3]{regression}
 
 \end{document}
