@@ -66,6 +66,8 @@ x=A\b
 % Create block diagonal matrix
 
 % Initialize B to a 15 x 15 zero matrix
+
+% Comment: could have used kron product, it is generally faster in matlab and it saves you a lot of symbols in your code
 B=blkdiag(A,A,A,A,A)
 
 
@@ -74,6 +76,8 @@ B=blkdiag(A,A,A,A,A)
 % Create 5x3 matrix of randome distributions with mu= 10 and std=5
 
 A=10+5*randn(5,3)
+
+% Comment, again, could have shortened it by A = A>10 
 
 % Replace the elements of A that are less than 10 with 0
 A(A<10)=0;
@@ -91,4 +95,5 @@ T=readtable('datahw1.csv', 'ReadVariableNames', false);
 % Modify variable names
 T.Properties.VariableNames = {'FirmID', 'Year', 'Export', 'RD', 'prod', 'cap'}
 
+% comment : it's fine to use econometrics toolbox, but it's also good to do some data-cleaning
 fitlm(T,'prod~Export+RD+cap')
