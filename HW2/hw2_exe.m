@@ -98,4 +98,6 @@ for i=1:n_vb
  pb_vector(i) = prices_sol(2);
  x0=prices_sol;
 end
+% so, where is the plot? your matlab code should print all the results
+% needed.
 
