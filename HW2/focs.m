@@ -11,6 +11,7 @@ function focs = focs(p)
  focs(1) = DA(p) + pa*D_DA(p);
  focs(2) = DB(p) + pb*D_DB(p);
  focs=focs';
+%  good to use the non-singular version of FOC
 end
 
 % We define the derivative of the Demand for product A with respect to
