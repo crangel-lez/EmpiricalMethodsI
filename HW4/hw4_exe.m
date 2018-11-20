@@ -43,6 +43,9 @@ pi_nc=weights'*4*ind_function(points)
 
 %% Question 3
 
+% It wouild be fair to compare the same number of points rules. in this
+% case, NC has 10 times more points
+
 % Approximate pi based on the above integral using a quasi-Monte Carlo
 % approach
 

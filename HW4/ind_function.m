@@ -7,4 +7,6 @@ norms_squared=sum((x.^2),2);
 npoints=length(x);
 ind_fun=zeros(npoints,1);
 ind_fun(norms_squared <= 1)=1;
+
+% you could have done ind_fun = norm_squared < 1;
 end

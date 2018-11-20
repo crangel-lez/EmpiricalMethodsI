@@ -12,7 +12,10 @@ min_lnL=@(b) (-log_like(b, X, y));
 b0= ones(6,1);
 
 % Set Options for Nelder-Mead
-options_mle_nm=optimset('MaxFunEvals', 1000);
+options_mle_nm=optimset('MaxFunEvals', 1000,'TolFun',1e-12);
+
+% always set the stopping citeria, otherwise you run risk of finding bogus
+% solution
 
 % Perform Nelder-Mead Optimization
 [bsol_nm, fval, exitflag, output]=fminsearch(min_lnL, b0, options_mle_nm);
@@ -38,6 +41,10 @@ min_lnL= @(b) (-log_like(b, X, y));
 output
 bsol_qn
 
+% All your results are very different from one another, in every section.
+% that should not happen. it indicates something is profoundly wrong. My
+% codes that I run on your data give approximately the same answer in all
+% sections. Check out what was wrong.
 
 
 %% Question 3
@@ -52,7 +59,7 @@ residuals= @(b) resids(b, X, y);
 options_nonls=optimoptions('lsqnonlin', 'Algorithm', 'levenberg-marquardt', 'MaxFunctionEvaluations', 10000, 'FunctionTolerance', 1e-6, 'MaxIterations', 400, 'Display', 'off');
 
 % Optimize
-[bsol_lsqnonlin, resnorm,rep_resid,exitflag,output]=lsqnonlin(residuals, b0lsq, [], [], options_nonls);
+[bsol_lsqnonlin, resnorm,rep_resid,exitflag,output]=lsqnonlin(residuals, bsol_qn, [], [], options_nonls);
 
 % Report Results
 output
