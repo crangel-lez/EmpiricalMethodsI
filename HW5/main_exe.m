@@ -1,4 +1,5 @@
 %% HW5
+% all is good 
 
 %Add CompEcon toolbox to path
 addpath(genpath('../compecon2011'))
