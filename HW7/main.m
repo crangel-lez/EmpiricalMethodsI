@@ -1,4 +1,4 @@
-
+% all is good, check plus
 % This file implements the Algorithm described on page 3
 
 % Initial Guess for p and V0
